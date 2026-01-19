@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Marais Tote | Évara</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .product-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 90vh;
+            align-items: center;
+        }
+
+        .product-gallery {
+            height: 100%;
+            background: var(--bg-secondary);
+        }
+
+        .product-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: var(--spacing-xl);
+        }
+
+        .product-category {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            color: var(--accent-gold);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .product-title {
+            font-size: 4rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-secondary);
+        }
+
+        .product-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .product-actions {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--text-primary);
+            color: var(--text-primary);
+        }
+
+        .details-accent {
+            margin-top: var(--spacing-xl);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid #eee;
+        }
+
+        .details-accent h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .details-accent p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header style="mix-blend-mode: normal; color: var(--text-primary);">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Évara</a>
+                <ul class="nav-links">
+                    <li><a href="collection.html">Collections</a></li>
+                    <li><a href="studio.html">Studio</a></li>
+                    <li><a href="match.html">Match</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="product-hero">
+            <div class="product-gallery">
+                <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&q=80&w=1500"
+                    alt="Le Marais Tote">
+            </div>
+            <div class="product-info">
+                <p class="product-category">The City Edit</p>
+                <h1 class="product-title">Le Marais Tote</h1>
+                <p class="product-price">$480.00</p>
+                <div class="product-description">
+                    "She walks through the 3rd arrondissement, the morning light catching the grain of her leather. This
+                    bag is not just an object; it is a repository for letters, secrets, and the city's quiet promises."
+                </div>
+
+                <div class="product-actions">
+                    <button class="btn">Add to Bag</button>
+                    <button class="btn btn-outline" onclick="window.location.href='match.html'">Try with My
+                        Outfit</button>
+                    <button class="btn btn-outline" onclick="window.location.href='studio.html'">Customize This
+                        Bag</button>
+                </div>
+
+                <div class="details-accent">
+                    <h4>Artistry & Origin</h4>
+                    <p>Hand-finished in our Florence atelier. Responsibly sourced Italian calfskin. Palladium-plated
+                        hardware.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Évara</div>
+            <p class="copyright">&copy; 2026 ÉVARA ATELIER</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

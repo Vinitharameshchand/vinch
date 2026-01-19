@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Évara | Carry Your Story</title>
+    <meta name="description" content="Évara is a digital atelier for luxury handbags. Design your story with our custom studio and editorial collections.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&q=80&w=2000');
+            background-blend-mode: overlay;
+            background-color: rgba(245, 245, 240, 0.3);
+        }
+
+        .paths {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-top: -100px;
+            z-index: 20;
+            position: relative;
+        }
+
+        .path-card {
+            background: white;
+            padding: var(--spacing-lg);
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .path-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .path-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .editorial-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .moment-image {
+            height: 80vh;
+            overflow: hidden;
+        }
+
+        .moment-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.5s ease;
+        }
+
+        .moment-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .moment-caption {
+            padding: var(--spacing-lg);
+        }
+
+        .moment-caption h2 {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .moment-caption p {
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Évara</a>
+                <ul class="nav-links">
+                    <li><a href="collection.html">Collections</a></li>
+                    <li><a href="studio.html">Studio</a></li>
+                    <li><a href="match.html">Match</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Carry Your Story</h1>
+                <p class="hero-subtitle">Handbags designed for the woman you’re becoming.</p>
+                <a href="studio.html" class="btn">Explore the Studio</a>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="paths">
+                <div class="path-card" onclick="window.location.href='studio.html'">
+                    <h3>Custom Studio</h3>
+                    <p>Craft your personal signature.</p>
+                </div>
+                <div class="path-card" onclick="window.location.href='match.html'">
+                    <h3>Outfit Matcher</h3>
+                    <p>Find the perfect companion for your look.</p>
+                </div>
+                <div class="path-card" onclick="window.location.href='collection.html'">
+                    <h3>Collections</h3>
+                    <p>Explore our seasonal edit.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container reveal">
+            <div class="editorial-section">
+                <div class="moment-image">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=1200" alt="Café Morning">
+                </div>
+                <div class="moment-caption">
+                    <h2>Café Mornings</h2>
+                    <p>The soft steam of a latte, the weight of a book, and a tote that holds more than just essentials—it holds your morning reflections.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container reveal">
+            <div class="editorial-section" style="direction: rtl;">
+                <div class="moment-image" style="direction: ltr;">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" alt="Office Corridors">
+                </div>
+                <div class="moment-caption" style="direction: ltr; text-align: right;">
+                    <h2 style="margin-left: auto;">Office Corridors</h2>
+                    <p style="margin-left: auto;">Structure meets softness. Navigate your ambitions with a silhouette that commands the room without saying a word.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container reveal">
+            <div class="editorial-section">
+                <div class="moment-image">
+                    <img src="https://images.unsplash.com/photo-1470229722913-d7d8bc2d705c?auto=format&fit=crop&q=80&w=1200" alt="Evening Streets">
+                </div>
+                <div class="moment-caption">
+                    <h2>Evening Streets</h2>
+                    <p>When the city lights begin to dance, carry a clutch that catches the glow of your most memorable nights.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Évara</div>
+            <ul class="footer-links">
+                <li><a href="collection.html">Collection</a></li>
+                <li><a href="studio.html">Studio</a></li>
+                <li><a href="match.html">Match</a></li>
+                <li><a href="about.html">Manifesto</a></li>
+            </ul>
+            <p class="copyright">&copy; 2026 ÉVARA ATELIER. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

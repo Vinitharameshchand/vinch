@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio | Évara</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        body {
+            background-color: var(--bg-ivory);
+        }
+
+        .studio-container {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            height: 100vh;
+            padding-top: 80px;
+        }
+
+        .preview-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--bg-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #bag-preview {
+            width: 400px;
+            height: 400px;
+            transition: var(--transition-smooth);
+            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.1));
+        }
+
+        .controls-area {
+            background: white;
+            padding: var(--spacing-lg);
+            border-left: 1px solid #eee;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .step-indicator {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            color: var(--accent-gold);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .step-title {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .option-card {
+            border: 1px solid #eee;
+            padding: var(--spacing-sm);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .option-card:hover,
+        .option-card.active {
+            border-color: var(--text-primary);
+            background: var(--bg-ivory);
+        }
+
+        .option-card img {
+            width: 50px;
+            margin: 0 auto var(--spacing-xs);
+        }
+
+        .color-circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin: 0 auto var(--spacing-xs);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .personalization-input {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border: 1px solid #eee;
+            font-family: inherit;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .studio-footer {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .bag-initials-preview {
+            position: absolute;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: rgba(0, 0, 0, 0.5);
+            pointer-events: none;
+        }
+
+        /* SVG Bag Base Styles */
+        .bag-svg-path {
+            fill: #EBE8E0;
+            transition: fill 0.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header style="mix-blend-mode: normal; color: var(--text-primary); border-bottom: 1px solid #eee;">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Évara</a>
+                <ul class="nav-links">
+                    <li><a href="collection.html">Collections</a></li>
+                    <li><a href="studio.html">Studio</a></li>
+                    <li><a href="match.html">Match</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="studio-container">
+        <div class="preview-area">
+            <div id="bag-container" style="position: relative;">
+                <!-- We'll inject SVG here via JS -->
+                <div id="bag-preview"></div>
+                <div id="initials-overlay" class="bag-initials-preview"
+                    style="top: 60%; left: 50%; transform: translate(-50%, -50%);"></div>
+            </div>
+        </div>
+
+        <div class="controls-area">
+            <div id="step-content">
+                <div class="step-indicator">Step 1 / 5</div>
+                <h2 class="step-title">Choose Shape</h2>
+                <div class="options-grid" id="shape-options">
+                    <div class="option-card active" data-value="tote">
+                        <p>Tote</p>
+                    </div>
+                    <div class="option-card" data-value="sling">
+                        <p>Sling</p>
+                    </div>
+                    <div class="option-card" data-value="shoulder">
+                        <p>Shoulder</p>
+                    </div>
+                    <div class="option-card" data-value="mini">
+                        <p>Mini</p>
+                    </div>
+                </div>
+
+                <div class="step-indicator">Step 2 / 5</div>
+                <h2 class="step-title">Select Color</h2>
+                <div class="options-grid" id="color-options">
+                    <div class="option-card active" data-value="#FAF9F6" data-name="Ivory">
+                        <div class="color-circle" style="background: #FAF9F6;"></div>
+                        <p>Ivory</p>
+                    </div>
+                    <div class="option-card" data-value="#D2B48C" data-name="Tan">
+                        <div class="color-circle" style="background: #D2B48C;"></div>
+                        <p>Tan</p>
+                    </div>
+                    <div class="option-card" data-value="#2C2C2C" data-name="Noir">
+                        <div class="color-circle" style="background: #2C2C2C;"></div>
+                        <p>Noir</p>
+                    </div>
+                    <div class="option-card" data-value="#8A9A5B" data-name="Sage">
+                        <div class="color-circle" style="background: #8A9A5B;"></div>
+                        <p>Sage</p>
+                    </div>
+                    <div class="option-card" data-value="#800020" data-name="Burgundy">
+                        <div class="color-circle" style="background: #800020;"></div>
+                        <p>Burgundy</p>
+                    </div>
+                </div>
+
+                <div class="step-indicator">Step 3 / 5</div>
+                <h2 class="step-title">Material</h2>
+                <div class="options-grid" id="material-options">
+                    <div class="option-card active" data-value="leather">
+                        <p>Leather</p>
+                    </div>
+                    <div class="option-card" data-value="suede">
+                        <p>Suede</p>
+                    </div>
+                    <div class="option-card" data-value="vegan">
+                        <p>Vegan</p>
+                    </div>
+                </div>
+
+                <div class="step-indicator">Step 4 / 5</div>
+                <h2 class="step-title">Initials</h2>
+                <input type="text" id="initials-input" class="personalization-input" placeholder="Your Initials (Max 3)"
+                    maxlength="3">
+            </div>
+
+            <div class="studio-footer">
+                <button class="btn" id="save-bag">Save My Design</button>
+                <button class="btn"
+                    style="background: white; color: var(--text-primary); border: 1px solid var(--text-primary);">Add to
+                    Bag</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/studio.js"></script>
+</body>
+
+</html>

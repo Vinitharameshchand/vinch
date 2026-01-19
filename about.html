@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story | Évara</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .manifesto-section {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        .manifesto-title {
+            font-size: 4rem;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .manifesto-text {
+            font-size: 1.5rem;
+            line-height: 2;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .manifesto-text span {
+            display: block;
+            margin-bottom: var(--spacing-md);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition-smooth);
+        }
+
+        .manifesto-text span.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .vision-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            margin: var(--spacing-xl) 0;
+            align-items: center;
+        }
+
+        .vision-image {
+            height: 600px;
+            background: var(--bg-secondary);
+        }
+
+        .vision-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header style="mix-blend-mode: normal; color: var(--text-primary);">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Évara</a>
+                <ul class="nav-links">
+                    <li><a href="collection.html">Collections</a></li>
+                    <li><a href="studio.html">Studio</a></li>
+                    <li><a href="match.html">Match</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="manifesto-section">
+            <h1 class="manifesto-title">The Digital Atelier</h1>
+            <div class="manifesto-text">
+                <span class="reveal">We believe a handbag is more than an accessory.</span>
+                <span class="reveal">It is a silent witness to your journey.</span>
+                <span class="reveal">A personal signature written in leather and silk.</span>
+                <span class="reveal">At Évara, we don’t just sell bags.</span>
+                <span class="reveal">We provide the canvas for your story.</span>
+            </div>
+        </section>
+
+        <div class="vision-grid">
+            <div class="vision-image reveal">
+                <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000"
+                    alt="Craftsmanship">
+            </div>
+            <div class="vision-content reveal">
+                <h2 style="font-size: 3rem; margin-bottom: var(--spacing-md);">The Hand of the Artist</h2>
+                <p style="color: var(--text-secondary); line-height: 1.8;">Every stitch is intentional. Every curve is
+                    considered. Our digital atelier bridges the gap between old-world craftsmanship and the future of
+                    fashion technology. By allowing you to customize and match with intention, we ensure that every
+                    Évara bag is as unique as the woman who carries it.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer style="margin-top: var(--spacing-xl);">
+        <div class="container">
+            <div class="footer-logo">Évara</div>
+            <p class="copyright">&copy; 2026 ÉVARA ATELIER</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

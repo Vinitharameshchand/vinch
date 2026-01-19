@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Collection | Évara</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-xl);
+            padding: var(--spacing-xl) 0;
+        }
+
+        .collection-item {
+            position: relative;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .collection-item:nth-child(even) {
+            margin-top: 100px;
+        }
+
+        .item-image {
+            width: 100%;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            background: var(--bg-secondary);
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .collection-item:hover .item-image img {
+            transform: scale(1.03);
+        }
+
+        .item-details {
+            margin-top: var(--spacing-md);
+        }
+
+        .item-details h3 {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .item-details .price {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .item-details .story {
+            font-style: italic;
+            font-size: 0.95rem;
+            max-width: 300px;
+            color: var(--text-secondary);
+        }
+
+        .tag {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: white;
+            padding: 5px 15px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header style="mix-blend-mode: normal; color: var(--text-primary);">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Évara</a>
+                <ul class="nav-links">
+                    <li><a href="collection.html">Collections</a></li>
+                    <li><a href="studio.html">Studio</a></li>
+                    <li><a href="match.html">Match</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <header style="padding: var(--spacing-xl) 0; text-align: center; border: none; position: relative;">
+            <p class="step-indicator">Chapter I</p>
+            <h1 style="font-size: 4rem;">The Winter Muse</h1>
+            <p style="font-style: italic; color: var(--text-secondary);">A dialogue between form and functionality.</p>
+        </header>
+
+        <div class="collection-grid">
+            <div class="collection-item reveal" onclick="window.location.href='product.html'">
+                <div class="tag">New Arrival</div>
+                <div class="item-image">
+                    <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&q=80&w=1000"
+                        alt="Le Marais Tote">
+                </div>
+                <div class="item-details">
+                    <h3>Le Marais Tote</h3>
+                    <p class="price">$480</p>
+                    <p class="story">Inspired by the winding streets of Paris, designed to hold the fragments of your
+                        day.</p>
+                </div>
+            </div>
+
+            <div class="collection-item reveal" onclick="window.location.href='product.html'">
+                <div class="item-image">
+                    <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&q=80&w=1000"
+                        alt="The Ethereal Clutch">
+                </div>
+                <div class="item-details">
+                    <h3>The Ethereal Clutch</h3>
+                    <p class="price">$320</p>
+                    <p class="story">For the nights that transition into mornings. A whisper of gold in your palm.</p>
+                </div>
+            </div>
+
+            <div class="collection-item reveal" onclick="window.location.href='product.html'">
+                <div class="item-image">
+                    <img src="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&q=80&w=1000"
+                        alt="Sienna Bucket">
+                </div>
+                <div class="item-details">
+                    <h3>Sienna Bucket</h3>
+                    <p class="price">$390</p>
+                    <p class="story">Earthy tones and organic shapes. A bag that breathes with you.</p>
+                </div>
+            </div>
+
+            <div class="collection-item reveal" onclick="window.location.href='product.html'">
+                <div class="item-image">
+                    <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&q=80&w=1000"
+                        alt="Lumiere Crossbody">
+                </div>
+                <div class="item-details">
+                    <h3>Lumiere Crossbody</h3>
+                    <p class="price">$270</p>
+                    <p class="story">Lightweight, luminous, and always by your side. Perspective in every stitch.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer style="margin-top: var(--spacing-xl);">
+        <div class="container">
+            <div class="footer-logo">Évara</div>
+            <p class="copyright">&copy; 2026 ÉVARA ATELIER</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
