@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { content } from '../data/content';
 
 const Hero = () => {
   return (
@@ -10,11 +11,13 @@ const Hero = () => {
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 10, ease: "linear" }}
-          src="/images/hero.png" 
+          src={content.hero.image} 
           alt="Luxury Campaign" 
           className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-black/10"></div>
+        {/* Scrim for readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-vinch-cream/80 via-vinch-cream/40 to-transparent"></div>
+        <div className="absolute inset-0 bg-black/5"></div>
       </div>
 
       {/* Grain Texture */}
@@ -22,34 +25,38 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-20 max-w-[1800px] mx-auto px-6 md:px-12 w-full pt-20">
-        <div className="max-w-2xl">
+        <div className="max-w-3xl">
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-[11px] tracking-[0.4em] font-sans font-semibold text-vinch-espresso/80 uppercase mb-4"
           >
-            New Collection
+            {content.hero.tagline}
           </motion.p>
           
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.4 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-serif text-vinch-espresso leading-[1.1] mb-8"
+            className="text-5xl md:text-7xl lg:text-8xl font-serif text-vinch-espresso font-medium leading-[1.1] mb-8"
           >
-            Designed for <br />
-            <span className="italic">the woman</span> you’re <br />
-            becoming.
+            {content.hero.headline.split(' ').map((word, i) => (
+              <React.Fragment key={i}>
+                {word === 'woman' ? <span className="italic">{word} </span> : word + ' '}
+                {i === 2 && <br />}
+                {i === 5 && <br />}
+              </React.Fragment>
+            ))}
           </motion.h1>
 
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg md:text-xl text-vinch-espresso/70 font-sans max-w-md mb-10 leading-relaxed"
+            className="text-lg md:text-xl text-vinch-espresso font-sans max-w-md mb-10 leading-relaxed drop-shadow-sm"
           >
-            Modern handbags crafted with quiet luxury, soft structure, and timeless intention.
+            {content.hero.subtext}
           </motion.p>
 
           <motion.div 
@@ -58,12 +65,19 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-wrap gap-4"
           >
-            <button className="px-10 py-4 bg-vinch-espresso text-vinch-cream text-[11px] tracking-[0.2em] font-sans font-medium hover:bg-vinch-gold transition-all duration-500 uppercase">
-              Explore Collection
-            </button>
-            <button className="px-10 py-4 border border-vinch-espresso/20 text-vinch-espresso text-[11px] tracking-[0.2em] font-sans font-medium hover:bg-vinch-espresso hover:text-vinch-cream transition-all duration-500 uppercase backdrop-blur-sm">
-              Discover VINCH
-            </button>
+            {content.hero.cta.map((cta, i) => (
+              <a 
+                key={i}
+                href={cta.link}
+                className={`px-10 py-4 text-[11px] tracking-[0.2em] font-sans font-medium uppercase transition-all duration-500 ${
+                  i === 0 
+                    ? "bg-vinch-espresso text-vinch-cream hover:bg-vinch-gold" 
+                    : "border border-vinch-espresso/20 text-vinch-espresso hover:bg-vinch-espresso hover:text-vinch-cream backdrop-blur-sm"
+                }`}
+              >
+                {cta.text}
+              </a>
+            ))}
           </motion.div>
         </div>
       </div>

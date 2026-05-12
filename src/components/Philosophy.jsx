@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { content } from '../data/content';
 
 const Philosophy = () => {
   return (
-    <section className="py-32 px-6 md:px-12 bg-vinch-cream max-w-[1800px] mx-auto overflow-hidden">
+    <section id="philosophy" className="py-32 px-6 md:px-12 bg-vinch-cream max-w-[1800px] mx-auto overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
         
         {/* Left Side - Text */}
@@ -16,19 +17,23 @@ const Philosophy = () => {
             viewport={{ once: true }}
           >
             <p className="text-[11px] tracking-[0.4em] font-sans font-semibold text-vinch-gold uppercase mb-8">
-              Our Story
+              {content.philosophy.tagline}
             </p>
             <h2 className="text-5xl md:text-6xl font-serif text-vinch-espresso leading-tight mb-8">
-              More than a brand. <br />
-              <span className="italic">A way of being.</span>
+              {content.philosophy.headline.split(' ').map((word, i) => (
+                <React.Fragment key={i}>
+                  {word === 'brand.' || word === 'being.' ? <span className="italic">{word} </span> : word + ' '}
+                  {i === 3 && <br />}
+                </React.Fragment>
+              ))}
             </h2>
             <p className="text-lg text-vinch-espresso/70 font-sans leading-relaxed mb-10 max-w-md">
-              VINCH was created for women building a life they want to grow into. Every piece is designed to feel timeless, effortless, and emotionally personal.
+              {content.philosophy.subtext}
             </p>
             
             <a href="#" className="inline-flex items-center group space-x-4">
               <span className="text-[11px] tracking-[0.3em] font-sans font-bold text-vinch-espresso group-hover:text-vinch-gold transition-colors duration-300">
-                DISCOVER OUR WORLD
+                {content.philosophy.linkText}
               </span>
               <div className="w-10 h-[1px] bg-vinch-espresso/30 group-hover:bg-vinch-gold group-hover:w-16 transition-all duration-500"></div>
               <ArrowRight size={16} className="text-vinch-espresso/50 group-hover:text-vinch-gold group-hover:translate-x-2 transition-all duration-500" />
@@ -47,7 +52,7 @@ const Philosophy = () => {
               className="col-span-12 md:col-span-10 md:col-start-2 relative z-10"
             >
               <img 
-                src="/images/philosophy.png" 
+                src={content.philosophy.image} 
                 alt="Philosophy" 
                 className="w-full h-auto object-cover shadow-2xl grayscale-[0.2] hover:grayscale-0 transition-all duration-1000"
               />

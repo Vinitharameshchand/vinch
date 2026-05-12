@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Search, User, ShoppingBag, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { content } from '../data/content';
 
-const Navbar = () => {
+const Navbar = ({ cartCount, setIsCartOpen }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -45,7 +46,7 @@ const Navbar = () => {
         {/* Logo */}
         <div className="flex-1 lg:flex-none text-center">
           <a href="/" className="text-2xl md:text-3xl tracking-[0.4em] font-serif font-light text-vinch-espresso">
-            VINCH
+            {content.brand.name}
           </a>
         </div>
 
@@ -63,9 +64,17 @@ const Navbar = () => {
           <div className="flex items-center space-x-6 ml-4">
             <Search size={18} className="text-vinch-espresso cursor-pointer hover:text-vinch-gold transition-colors" />
             <User size={18} className="text-vinch-espresso cursor-pointer hover:text-vinch-gold transition-colors" />
-            <div className="relative">
-              <ShoppingBag size={18} className="text-vinch-espresso cursor-pointer hover:text-vinch-gold transition-colors" />
-              <span className="absolute -top-2 -right-2 bg-vinch-gold text-[8px] text-white w-4 h-4 rounded-full flex items-center justify-center font-sans">0</span>
+            <div className="relative cursor-pointer group" onClick={() => setIsCartOpen(true)}>
+              <ShoppingBag size={18} className="text-vinch-espresso group-hover:text-vinch-gold transition-colors" />
+              {cartCount > 0 && (
+                <motion.span 
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className="absolute -top-2 -right-2 bg-vinch-gold text-[8px] text-white w-4 h-4 rounded-full flex items-center justify-center font-sans font-bold shadow-sm"
+                >
+                  {cartCount}
+                </motion.span>
+              )}
             </div>
           </div>
         </div>

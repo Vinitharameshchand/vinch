@@ -1,29 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Sparkles, Feather, Clock } from 'lucide-react';
+import { content } from '../data/content';
 
-const features = [
-  {
-    icon: <Shield size={24} className="text-vinch-gold" />,
-    title: "Premium Vegan Leather",
-    description: "Sourced for quality and crafted to last, with a soft-touch finish."
-  },
-  {
-    icon: <Feather size={24} className="text-vinch-gold" />,
-    title: "Lightweight Structure",
-    description: "Comfort you can carry every day, without compromising on form."
-  },
-  {
-    icon: <Sparkles size={24} className="text-vinch-gold" />,
-    title: "Soft Interior",
-    description: "Designed with soft lining and smart compartments for modern utility."
-  },
-  {
-    icon: <Clock size={24} className="text-vinch-gold" />,
-    title: "Timeless Silhouette",
-    description: "Modern shapes that stay beautiful for years, beyond passing trends."
-  }
-];
+const iconMap = {
+  "Premium Vegan Leather": <Shield size={24} className="text-vinch-gold" />,
+  "Lightweight Structure": <Feather size={24} className="text-vinch-gold" />,
+  "Soft Interior": <Sparkles size={24} className="text-vinch-gold" />,
+  "Timeless Silhouette": <Clock size={24} className="text-vinch-gold" />
+};
 
 const ProductExperience = () => {
   return (
@@ -41,7 +26,7 @@ const ProductExperience = () => {
           >
             <div className="aspect-[4/5] relative z-10 overflow-hidden shadow-3xl">
               <img 
-                src="/images/bag-mini.png" 
+                src={content.experience.mainImage} 
                 alt="Product Detail" 
                 className="w-full h-full object-cover"
               />
@@ -57,7 +42,7 @@ const ProductExperience = () => {
               className="absolute -right-12 -bottom-12 w-2/3 aspect-square hidden md:block z-20 border-[12px] border-vinch-cream shadow-2xl overflow-hidden"
             >
               <img 
-                src="/images/bag-sculpt.png" 
+                src={content.experience.secondaryImage} 
                 alt="Texture Detail" 
                 className="w-full h-full object-cover scale-150"
               />
@@ -73,15 +58,14 @@ const ProductExperience = () => {
               viewport={{ once: true }}
             >
               <p className="text-[11px] tracking-[0.4em] font-sans font-semibold text-vinch-espresso/40 uppercase mb-4">
-                Product Experience
+                {content.experience.tagline}
               </p>
               <h2 className="text-4xl md:text-5xl font-serif text-vinch-espresso mb-12 leading-tight">
-                Thoughtful by design. <br />
-                Loved in every detail.
+                {content.experience.headline}
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-8">
-                {features.map((feature, index) => (
+                {content.experience.features.map((feature, index) => (
                   <motion.div 
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
@@ -91,7 +75,7 @@ const ProductExperience = () => {
                     className="flex flex-col space-y-4"
                   >
                     <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm">
-                      {feature.icon}
+                      {iconMap[feature.title] || <Shield size={24} className="text-vinch-gold" />}
                     </div>
                     <h3 className="text-sm tracking-[0.1em] font-sans font-bold text-vinch-espresso uppercase">
                       {feature.title}
