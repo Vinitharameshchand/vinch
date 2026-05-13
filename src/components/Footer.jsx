@@ -2,6 +2,19 @@ import React from 'react';
 import { Instagram, Twitter, Linkedin, ArrowUp } from 'lucide-react';
 
 const Footer = () => {
+  const [email, setEmail] = React.useState('');
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    console.log('Subscribed:', email);
+    // Store email in localStorage array "subscribers"
+    const existing = JSON.parse(localStorage.getItem('subscribers') || '[]');
+    if (!existing.includes(email)) {
+      existing.push(email);
+      localStorage.setItem('subscribers', JSON.stringify(existing));
+    }
+    // Optionally clear input after subscribe
+    setEmail('');
+  };
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
