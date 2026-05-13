@@ -10,7 +10,7 @@ const Footer = () => {
     <footer className="bg-vinch-espresso text-vinch-cream py-24 px-6 md:px-12">
       <div className="max-w-[1800px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8 mb-20">
-          
+
           {/* Brand Info */}
           <div className="lg:col-span-1">
             <h2 className="text-3xl tracking-[0.4em] font-serif font-light mb-8">VINCH</h2>
@@ -68,15 +68,15 @@ const Footer = () => {
 
         <div className="pt-12 border-t border-vinch-cream/10 flex flex-col md:flex-row justify-between items-center gap-8">
           <p className="text-[10px] tracking-[0.2em] font-sans text-vinch-cream/30">
-            © 2024 VINCH. ALL RIGHTS RESERVED.
+            © 2026 VINCH. ALL RIGHTS RESERVED.
           </p>
-          
+
           <div className="flex space-x-8 text-[10px] tracking-[0.2em] font-sans text-vinch-cream/30">
             <a href="#" className="hover:text-vinch-cream transition-colors">PRIVACY POLICY</a>
             <a href="#" className="hover:text-vinch-cream transition-colors">TERMS OF SERVICE</a>
           </div>
 
-          <button 
+          <button
             onClick={scrollToTop}
             className="group flex items-center space-x-4 text-[10px] tracking-[0.2em] font-sans text-vinch-cream/50 hover:text-vinch-gold transition-colors"
           >
